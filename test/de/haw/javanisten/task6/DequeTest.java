@@ -43,7 +43,8 @@ class DequeTest {
         Assertions.assertEquals(this._elements[1], this._deque.getLast());
         Assertions.assertEquals(this._elements[0], this._deque.getFirst());
 
-        Assertions.assertEquals(this._elements[0], this._deque.removeLast());
+        Assertions.assertEquals(this._elements[1], this._deque.removeLast());
+        Assertions.assertEquals(this._elements[0], this._deque.getLast());
 
         Assertions.assertEquals(this._elements[0], this._deque.getLast());
         this._deque.addLast(this._elements[2]);
@@ -58,13 +59,14 @@ class DequeTest {
         });
         this._deque.addFirst(this._elements[0]);
         Assertions.assertFalse(this._deque.isEmpty());
-        Assertions.assertNull(this._deque.removeFirst());
+        Assertions.assertEquals(this._elements[0], this._deque.removeFirst());
         Assertions.assertTrue(this._deque.isEmpty());
 
         this._deque.addFirst(this._elements[1]);
         this._deque.addFirst(this._elements[2]);
         Assertions.assertFalse(this._deque.isEmpty());
-        Assertions.assertEquals(this._elements[1], this._deque.removeFirst());
+        Assertions.assertEquals(this._elements[2], this._deque.removeFirst());
+        Assertions.assertEquals(this._elements[1], this._deque.getFirst());
     }
 
     @Test
@@ -74,12 +76,15 @@ class DequeTest {
         });
         this._deque.addLast(this._elements[0]);
         Assertions.assertFalse(this._deque.isEmpty());
-        Assertions.assertNull(this._deque.removeLast());
+        Assertions.assertEquals(this._elements[0], this._deque.getLast());
+        Assertions.assertEquals(this._elements[0], this._deque.removeLast());
+
         Assertions.assertTrue(this._deque.isEmpty());
 
         this._deque.addLast(this._elements[1]);
         this._deque.addLast(this._elements[2]);
         Assertions.assertFalse(this._deque.isEmpty());
-        Assertions.assertEquals(this._elements[1], this._deque.removeLast());
+        Assertions.assertEquals(this._elements[2], this._deque.removeLast());
+        Assertions.assertEquals(this._elements[1], this._deque.getLast());
     }
 }

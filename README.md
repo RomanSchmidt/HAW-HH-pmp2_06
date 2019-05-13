@@ -13,7 +13,7 @@ Fällen das eigene Objekt.
 - Jede Erweiterung der Deque führt lediglich dazu, dass das add der Subklasse aufgerufen wird. Dafür
 wird vorher bestimmt, was parent und child sein sollte. Es gibt durch die Bedingung zuvor jedoch
 nie einen Nullpointer.
-- Jede Verkleinerung der Deque führ lediglich dazu, dass das delete der Subklasse aufgerufen wird.
+- Jede Verkleinerung der Deque führt lediglich dazu, dass das delete der Subklasse aufgerufen wird.
 Es verknüpft sein Parent mit Child und wird danach dem Garbige überlassen. Der Rückgabewert ist immer
-das nächste / vorherige Element, wenn es nicht das Betroffene ist. Denn dann wäre es null.
+das gelöschte Objekt.
 - Last ist immer der Parent vom firstElement. Auch wenn er es selbst ist.

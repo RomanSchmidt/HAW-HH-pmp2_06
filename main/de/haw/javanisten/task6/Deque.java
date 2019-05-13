@@ -41,14 +41,15 @@ public class Deque<K> implements IDeque {
         if (this.isEmpty()) {
             throw new NoSuchElementException();
         }
+        K deletedValue = this._firstElement.getValue();
         Element newFirst = this._firstElement.getChild();
         if (newFirst == this._firstElement) {
             this._firstElement = null;
-            return null;
+        } else {
+            this._firstElement.delete();
+            this._firstElement = newFirst;
         }
-        this._firstElement.delete();
-        this._firstElement = newFirst;
-        return this._firstElement.getValue();
+        return deletedValue;
     }
 
     @Override
@@ -57,12 +58,13 @@ public class Deque<K> implements IDeque {
             throw new NoSuchElementException();
         }
         Element last = this._firstElement.getParent();
+        K deletedValue = last.getValue();
         if (last == this._firstElement) {
             this._firstElement = null;
-            return null;
+        } else {
+            this._firstElement.getParent().delete();
         }
-        this._firstElement.getParent().delete();
-        return this.getLast();
+        return deletedValue;
     }
 
     @Override
